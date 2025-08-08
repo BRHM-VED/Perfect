@@ -40,4 +40,15 @@ npm run build && npm start
 ```
 
 Sticky cart appears when items > 0. If webhook missing, checkout opens WhatsApp with a pre-filled message.
+
+### Deploy on Render
+- Connect repo → Web Service
+- Build: `npm ci && npm run build`
+- Start: `npm start`
+- Env:
+  - `NEXT_PUBLIC_SITE_URL=https://your.render.app`
+  - `NEXT_PUBLIC_WHATSAPP_NUMBER=919999999999`
+  - `PT_CHECKOUT_WEBHOOK=` (optional)
+  - `NEXT_PUBLIC_PLAUSIBLE_DOMAIN=perfecttiming.app` (optional)
+- Optional: use `render.yaml` for cache + env scaffolding
 # Perfect

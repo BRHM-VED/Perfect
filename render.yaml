@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: perfect-timing
+    env: node
+    plan: starter
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NEXT_PUBLIC_SITE_URL
+        sync: false
+      - key: NEXT_PUBLIC_WHATSAPP_NUMBER
+        sync: false
+      - key: PT_CHECKOUT_WEBHOOK
+        sync: false
+      - key: NEXT_PUBLIC_PLAUSIBLE_DOMAIN
+        sync: false
+    cacheDirectories:
+      - .next/cache
+
+

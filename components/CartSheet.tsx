@@ -46,7 +46,11 @@ export default function CartSheet({ open, onOpenChange }: Props) {
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="text-sm text-zinc-300">₹299</div>
-                  <button className="btn-ghost px-3 py-1" onClick={() => remove(it.id)}>Remove</button>
+                  <button className="btn-ghost px-3 py-1" onClick={() => {
+                    remove(it.id);
+                    const live = document.getElementById("cart-live-region");
+                    if (live) live.textContent = "Removed from cart";
+                  }}>Remove</button>
                 </div>
               </div>
             ))}

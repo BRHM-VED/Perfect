@@ -8,8 +8,10 @@ const inter = Inter({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://perfecttiming.local";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://perfecttiming.local"),
+  metadataBase: new URL(siteUrl),
   title: "Perfect Timing — Ask once, act at the right time",
   description:
     "Add your question to cart—love, career, money, property, health—and receive a clear, time-specific answer from your birth chart within 48 working hours.",
@@ -54,6 +56,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} antialiased bg-background text-zinc-200 pb-28`}>
+        {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
+          <script
+            defer
+            data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
+            src="https://plausible.io/js/script.js"
+          />
+        )}
         {children}
       </body>
     </html>
